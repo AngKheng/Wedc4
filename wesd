@@ -1,0 +1,49 @@
+/* Mobile First */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;  /* One column */
+    grid-gap: 10px;  /* 10px gap */
+}
+/* Tablet View */
+@media (min-width: 772px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+    }
+
+    figure {
+        border-radius: 50%;  /* Circular figures */
+    }
+
+    figure:last-child {
+        grid-column: span 2;  /* Last figure spans two columns */
+    }
+}
+/* Large Screen View */
+@media (min-width: 992px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr); /* Three columns */
+    }
+
+    figure {
+        border-radius: 0;  /* Remove circular borders */
+    }
+
+    figure:nth-child(3n) {
+        grid-column: span 2;  /* Every third figure spans two columns */
+    }
+}
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;  /* Remove smooth scrolling */
+    }
+}
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    figure {
+        background-color: #333;  /* Dark background */
+        color: #f0e68c;  /* Lighter yellow-ish text */
+        border: 1px solid #000;  /* Black border */
+    }
+}
+
